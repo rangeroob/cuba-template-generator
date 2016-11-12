@@ -21,7 +21,7 @@ To generate an application with a Postgresql configuration setup use ***--databa
 
     cuba new [projectName] --database postgresql
     
-To generate an application with Sqlite configuration setup use ***--database*** option (via Sequel)
+To generate an application with a Sqlite configuration setup use ***--database*** option (via Sequel)
 
     cuba new [projectName] --database sqlite
     
