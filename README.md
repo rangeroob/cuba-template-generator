@@ -17,10 +17,14 @@ Additionally you can specify the type of your app via ***--type*** . E.g to gene
 
     cuba new [projectName] --type api
 
-To generate an application with a Postgresql configuration setup use ***-database*** option (via Datamapper)
+To generate an application with a Postgresql configuration setup use ***--database*** option (via Datamapper)
 
     cuba new [projectName] --database postgresql
+    
+To generate an application with Sqlite configuration setup use ***--database*** option (via Sequel)
 
+    cuba new [projectName] --database sqlite
+    
 By default ***--type*** is 'app'.
 
 ## Contributing
