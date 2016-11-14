@@ -40,6 +40,15 @@ module Cuba
         file.write setup_gemfile
       end
     end
+    
+    def create_sqlite_file
+      File.open("./#{@project_name}/sqlite.rb", 'w+') do |file|
+        file.write setup_sqlite
+      end
+      File.open("./#{@project_name}/Gemfile", 'w+') do |file|
+        file.write setup_gemfile
+      end
+    end
 
     private
 
@@ -57,6 +66,10 @@ module Cuba
 
     def setup_postgres
       create_template 'postgres'
+    end
+    
+    def setup_sqlite
+      create_template 'sqlite'
     end
 
     def setup_gemfile

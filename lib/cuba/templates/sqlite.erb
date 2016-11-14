@@ -1,0 +1,28 @@
+<%=
+<<-TEMPLATE
+require 'fileutils'
+require 'sequel'
+
+unless Dir.exist?('db')
+FileUtils.mkdir 'db'
+end
+DB = Sequel.connect('sqlite://db/sqlite.db')
+
+# create an items table
+DB.create_table :items do
+  primary_key :id
+  String :name
+  Float :price
+end
+
+# create a dataset from the items table
+items = DB[:items]
+
+# populate the table
+items.insert(:name => 'abc', :price => rand * 100)
+items.insert(:name => 'def', :price => rand * 100)
+items.insert(:name => 'ghi', :price => rand * 100)
+
+
+TEMPLATE
+%>
