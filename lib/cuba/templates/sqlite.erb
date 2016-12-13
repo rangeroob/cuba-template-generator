@@ -6,7 +6,7 @@ require 'sequel'
 unless Dir.exist?('db')
 FileUtils.mkdir 'db'
 end
-DB = Sequel.connect('sqlite://db/sqlite.db')
+DB = Sequel.connect('sqlite://db/sqlite.db') # requires sqlite3
 
 # create an items table
 DB.create_table :items do
