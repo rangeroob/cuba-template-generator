@@ -5,7 +5,8 @@ require 'fileutils'
 RSpec::Core::RakeTask.new(:spec) do |task|
   task.rspec_opts = ['--color', '--format progress', '--order random']
   at_exit do
-  FileUtils.remove_entry_secure('myproject')
+    FileUtils.remove_entry_secure('app')
+    FileUtils.remove_entry_secure('api')
   end
 end
 
