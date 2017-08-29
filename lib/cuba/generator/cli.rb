@@ -16,12 +16,12 @@ module Cuba
         c.description = 'Creates a new Cuba app'
         c.option '--type STRING', String, 'Creates an app with preferred type'
         c.option '--database STRING', String, 'Setups a database configuration with DataMapper'
-        c.action do |args, options|
-          if options.type
+        c.action do |_args, options|
+          if options.type(:api)
             generator = Cuba::Generator.new(ARGV[1], options.type)
             generator.create_postgres_file if options.database == 'postgresql'
-            generartor.create_sqlite_file if options.database == 'sqlite'
-          else
+            generator.create_sqlite_file if options.database == 'sqlite'
+          elsif options.type(:app)
             generator = Cuba::Generator.new(ARGV[1], :app)
             generator.create_postgres_file if options.database == 'postgresql'
             generator.create_sqlite_file if options.database == 'sqlite'
