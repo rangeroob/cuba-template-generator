@@ -20,6 +20,12 @@ Cuba.use Rack::Session::Cookie, :secret => "#{SecureRandom.base64(64)}"
 # Cuba.settings[:render][:template_engine] = "erb"
 # Cuba.settings[:render][:views] = "./views"
 
+# If you need static assets just create the folder public and subfolders /css /imgs /js
+# depending on your needs within the project folder then uncomment the ones you created.
+# Cuba.use Rack::Static, root: "public", urls: ["/css"]
+# Cuba.use Rack::Static, root: "public", urls: ["/imgs"]
+# Cuba.use Rack::Static, root: "public", urls: ["/js"]
+
 # To launch just type: 'rackup' in your console
 Cuba.define do
   on get do
