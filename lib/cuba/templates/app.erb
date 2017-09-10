@@ -6,6 +6,7 @@ Cuba.use Rack::Session::Cookie, :secret => "#{SecureRandom.base64(64)}"
 
 # If you need extra protection.
 # require 'rack/protection'
+# Cuba.use Rack::Session::Cookie, secret: Random.new_seed.to_s
 # Cuba.use Rack::Protection
 # Cuba.use Rack::Protection::RemoteReferrer
 
