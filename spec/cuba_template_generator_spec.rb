@@ -38,3 +38,21 @@ describe Cuba::Generator do
   end
 end
 
+describe Cuba::Generator do
+  subject_blog = Cuba::Generator.new('blog', 'blog')
+
+  it 'create_dir' do
+    expect(Dir).to receive(:mkdir)
+    subject_blog.create_dir
+  end
+
+  it 'create_config_file' do
+    expect(File).to receive(:open).with('./blog/config.ru', 'w+')
+    subject_blog.create_config_file
+  end
+
+  it 'create_cuba_file' do
+    expect(File).to receive(:open).with('./blog/blog.rb', 'w+')
+    subject_blog.create_cuba_file
+  end
+end
