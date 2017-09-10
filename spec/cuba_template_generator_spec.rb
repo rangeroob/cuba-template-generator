@@ -1,7 +1,7 @@
 require 'cuba/generator'
 
 describe Cuba::Generator do
-  subject_api = Cuba::Generator.new('api','api')
+  subject_api = Cuba::Generator.new('api', 'api')
 
   it 'create_dir' do
     expect(Dir).to receive(:mkdir)
@@ -20,7 +20,7 @@ describe Cuba::Generator do
 end
 
 describe Cuba::Generator do
-  subject_app = Cuba::Generator.new('app','app')
+  subject_app = Cuba::Generator.new('app', 'app')
 
   it 'create_dir' do
     expect(Dir).to receive(:mkdir)
