@@ -29,10 +29,11 @@ module Cuba
             generator = Cuba::Generator.new(ARGV[1], :blog)
             generator.create_postgres_file if options.database == 'postgresql'
             generator.create_sqlite_file if options.database == 'sqlite'
+
           end
         end
       end
+      run!
     end
-    run!
   end
 end

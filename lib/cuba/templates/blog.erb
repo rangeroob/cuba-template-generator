@@ -33,8 +33,8 @@ Cuba.define do
     end
     on 'article/:y/:m/:d/:title' do |y, m, d, title|
       # Put your markdown files within a directory called articles
-      # With the naming conversion of year-month-day-title.md
-      markdown = File.read("./articles/#{y}-#{m}-#{d}-#{title}.md")
+      # With the naming conversion of year-month-day-title.md 
+      markdown = File.read("./articles/1999-12-31-happynewyear.md")
       @article_page = Kramdown::Document.new(markdown).to_html
       res.write (@article_page)
     end
