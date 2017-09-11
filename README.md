@@ -1,5 +1,6 @@
 
 # cuba-template-generator
+[![Build Status](https://travis-ci.org/rangeroob/cuba-template-generator.svg?branch=dev)](https://travis-ci.org/rangeroob/cuba-template-generator)
 
 cuba-template-generator is a generator to help creating Cuba projects.
 
