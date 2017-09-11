@@ -1,0 +1,45 @@
+<%=
+<<-TEMPLATE
+require 'cuba'
+
+# If you need extra protection.
+# require 'rack/protection'
+# Cuba.use Rack::Session::Cookie, secret: Random.new_seed.to_s
+# Cuba.use Rack::Protection
+# Cuba.use Rack::Protection::RemoteReferrer
+
+# Cuba includes a plugin called Cuba::Render that provides a couple of helper methods for rendering templates.
+# require "cuba/render"
+# Cuba.plugin(Cuba::Render)
+
+# This plugin uses Tilt, which serves as an interface to a bunch of different Ruby template engines
+# (ERB, Haml, Sass, CoffeeScript, etc.), so you can use the template engine of your choice.
+
+# require 'erb'
+# Cuba.settings[:render][:template_engine] = "erb"
+# Cuba.settings[:render][:views] = "./views"
+
+# If you need static assets just create the folder public and subfolders /css /imgs /js
+# depending on your needs within the project folder then uncomment the ones you created.
+# Cuba.use Rack::Static, root: "public", urls: ["/css"]
+# Cuba.use Rack::Static, root: "public", urls: ["/imgs"]
+# Cuba.use Rack::Static, root: "public", urls: ["/js"]
+
+# To launch just type: 'rackup' in your console
+Cuba.define do
+  on get do
+    on root do
+    res.write "Hello #{project_name}"
+    end
+    on 'article/:y/:m/:d/:title' do |y, m, d, title|
+      # Put your markdown files within a directory called articles
+      # With the naming conversion of year-month-day-title.md
+      markdown = File.read("./articles/#{y}-#{m}-#{d}-#{title}.md")
+      @article_page = Kramdown::Document.new(markdown).to_html
+      res.write (@article_page)
+    end
+  end
+end
+
+TEMPLATE
+%>
