@@ -1,6 +1,6 @@
 require 'cuba/generator'
 
-describe Cuba::Generator do
+describe 'create a api', Cuba::Generator do
   subject_api = Cuba::Generator.new('api', 'api')
 
   it 'create_dir' do
@@ -19,7 +19,7 @@ describe Cuba::Generator do
   end
 end
 
-describe Cuba::Generator do
+describe 'create a app', Cuba::Generator do
   subject_app = Cuba::Generator.new('app', 'app')
 
   it 'create_dir' do
@@ -38,7 +38,7 @@ describe Cuba::Generator do
   end
 end
 
-describe Cuba::Generator do
+describe 'create a blog', Cuba::Generator do
   subject_blog = Cuba::Generator.new('blog', 'blog')
 
   it 'create_dir' do
