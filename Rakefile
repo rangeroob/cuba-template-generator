@@ -7,7 +7,8 @@ RSpec::Core::RakeTask.new(:spec) do |task|
   at_exit do
     FileUtils.remove_entry_secure('app')
     FileUtils.remove_entry_secure('api')
+    FileUtils.remove_entry_secure('blog')
   end
 end
 
-task :default => :spec
+task default: :spec

@@ -40,7 +40,7 @@ module Cuba
         file.write setup_gemfile
       end
     end
-    
+
     def create_sqlite_file
       File.open("./#{@project_name}/sqlite.rb", 'w+') do |file|
         file.write setup_sqlite
@@ -57,6 +57,8 @@ module Cuba
         create_template 'app'
       elsif @type.to_sym == :api
         create_template 'api'
+      elsif @type.to_sym == :blog
+        create_template 'blog'
       end
     end
 
@@ -67,7 +69,7 @@ module Cuba
     def setup_postgres
       create_template 'postgres'
     end
-    
+
     def setup_sqlite
       create_template 'sqlite'
     end
@@ -78,7 +80,7 @@ module Cuba
 
     def create_template(name)
       template = File.read File.join(APPROOT, 'templates/', "#{name}.erb")
-      erb(template, {project_name: @project_name})
+      erb(template, project_name: @project_name)
     end
 
     def erb(template, vars)
