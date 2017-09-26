@@ -3,10 +3,10 @@
 require 'cuba'
 
 # If you need extra protection.
-# require 'rack/protection'
+# require 'cuba/safe'
+# Cuba.use plugin Cuba::Safe
+
 # Cuba.use Rack::Session::Cookie, secret: Random.new_seed.to_s
-# Cuba.use Rack::Protection
-# Cuba.use Rack::Protection::RemoteReferrer
 
 # Cuba includes a plugin called Cuba::Render that provides a couple of helper methods for rendering templates.
 # require "cuba/render"
@@ -27,6 +27,15 @@ require 'cuba'
 
 # To launch just type: 'rackup' in your console
 Cuba.define do
+# Uncomment if you want to use cuba/safe
+# on csrf.unsafe? do
+#    csrf.reset!
+
+#   res.status = 403
+#   res.write("Not authorized")
+
+#   halt(res.finish)
+# end
   on get do
     on root do
     res.write "Hello #{project_name}"
