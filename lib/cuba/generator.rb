@@ -13,6 +13,7 @@ module Cuba
       create_dir
       create_config_file
       create_cuba_file
+      create_gemfile
       puts "Created your Cuba #{@type} at /#{@project_name} directory. Rock on!"
     end
 
@@ -32,21 +33,21 @@ module Cuba
       end
     end
 
+    def create_gemfile
+      File.open("./#{@project_name}/Gemfile", 'w+') do |file|
+        file.write setup_gemfile
+      end
+    end
+
     def create_postgres_file
       File.open("./#{@project_name}/postgres.rb", 'w+') do |file|
         file.write setup_postgres
-      end
-      File.open("./#{@project_name}/Gemfile", 'w+') do |file|
-        file.write setup_gemfile
       end
     end
 
     def create_sqlite_file
       File.open("./#{@project_name}/sqlite.rb", 'w+') do |file|
         file.write setup_sqlite
-      end
-      File.open("./#{@project_name}/Gemfile", 'w+') do |file|
-        file.write setup_gemfile
       end
     end
 
