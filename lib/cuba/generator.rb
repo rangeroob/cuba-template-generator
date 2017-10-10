@@ -14,6 +14,7 @@ module Cuba
       create_config_file
       create_cuba_file
       create_gemfile
+      create_gitignore
       puts "Created your Cuba #{@type} at /#{@project_name} directory. Rock on!"
     end
 
@@ -36,6 +37,12 @@ module Cuba
     def create_gemfile
       File.open("./#{@project_name}/Gemfile", 'w+') do |file|
         file.write setup_gemfile
+      end
+    end
+
+    def create_gitignore
+      File.open("./#{@project_name}/.gitignore", 'w+') do |file|
+        file.write setup_gitignore
       end
     end
 
@@ -77,6 +84,10 @@ module Cuba
 
     def setup_gemfile
       create_template 'gemfile'
+    end
+
+    def setup_gitignore
+      create_template '.gitignore'
     end
 
     def create_template(name)
