@@ -17,6 +17,16 @@ describe 'create a api', Cuba::Generator do
     expect(File).to receive(:open).with('./api/api.rb', 'w+')
     subject_api.create_cuba_file
   end
+
+  it 'create_gemfile' do
+    expect(File).to receive(:open).with('./api/Gemfile', 'w+')
+    subject_api.create_gemfile
+  end
+
+  it 'create_gitignore' do
+    expect(File).to receive(:open).with('./api/.gitignore', 'w+')
+    subject_api.create_gitignore
+  end
 end
 
 describe 'create a app', Cuba::Generator do
@@ -36,6 +46,16 @@ describe 'create a app', Cuba::Generator do
     expect(File).to receive(:open).with('./app/app.rb', 'w+')
     subject_app.create_cuba_file
   end
+
+  it 'create_gemfile' do
+    expect(File).to receive(:open).with('./app/Gemfile', 'w+')
+    subject_app.create_gemfile
+  end
+
+  it 'create_gitignore' do
+    expect(File).to receive(:open).with('./app/.gitignore', 'w+')
+    subject_app.create_gitignore
+  end
 end
 
 describe 'create a blog', Cuba::Generator do
@@ -54,5 +74,15 @@ describe 'create a blog', Cuba::Generator do
   it 'create_cuba_file' do
     expect(File).to receive(:open).with('./blog/blog.rb', 'w+')
     subject_blog.create_cuba_file
+  end
+
+  it 'create_gemfile' do
+    expect(File).to receive(:open).with('./blog/Gemfile', 'w+')
+    subject_blog.create_gemfile
+  end
+
+  it 'create_gitignore' do
+    expect(File).to receive(:open).with('./blog/.gitignore', 'w+')
+    subject_blog.create_gitignore
   end
 end
